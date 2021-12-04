@@ -27,6 +27,8 @@ while playProgram[0] == "y":
         print("You lost...")
     print(f"Winning Numbers: {firRandNum}, {secRandNum}, {thiRandNum}")
     playProgram = str(input("Try again? (Y/N): ")).lower()
-
-if playProgram[0] == "n":
-    exit
+    if playProgram == "y":
+        print("\nNext round!")
+    else:
+        print("\nThank you for playing!")
+        exit
