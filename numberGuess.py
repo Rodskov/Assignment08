@@ -7,16 +7,28 @@
 
 from random import randint
 
-randNum = randint(0,100)
-userGuessing = True
+def userPlay():
+    randNum = randint(0,100)
+    userGuessing = True
 
-while userGuessing:
-    userNum = int(input("Guess the number (0-100): "))
-    if userNum == randNum:
-        print(f"You guessed it! The number is {randNum}!")
-        userGuessing = False
-    else:
-        if userNum > randNum:
-            print("Your number is GREATER THAN the random number!\n")
+    while userGuessing:
+        userNum = int(input("Guess the number (0-100): "))
+        if userNum == randNum:
+            print(f"You guessed it! The number is {randNum}!")
+            userGuessing = False
         else:
-            print("Your number is LESS THAN the random number!\n")
+            if userNum > randNum:
+                print("Your number is GREATER THAN the random number!\n")
+            else:
+                print("Your number is LESS THAN the random number!\n")
+userPlay()
+userAsk = True
+while userAsk == True:
+    tryAgain = str(input("Keep playing?(Y/N): ")).lower()
+    if tryAgain == "y":
+        print("\nGet ready for the next game!")
+        userPlay()
+    else:
+        print("Thank you for playing!")
+        userAsk = False
+        exit
