@@ -7,17 +7,26 @@
 from random import randint
 
 def userAsk():
-    firstNum = int(input("Enter your first number: "))
-    secondNum = int(input("Enter your second number: "))
-    thirdNum = int(input("Enter your third number: "))
+    firstNum = int(input("Enter your first number (0-9): "))
+    secondNum = int(input("Enter your second number (0-9): "))
+    thirdNum = int(input("Enter your third number (0-9): "))
     return firstNum, secondNum, thirdNum
-
-firUserNum, secUserNum, thiUserNum = userAsk()
-firRandNum = randint(0,9)
-secRandNum = randint(0,9)
-thiRandNum = randint(0,9)
-randNumList = [firRandNum, secRandNum, thiRandNum]
 
 playProgram = "y"
 
-print(firRandNum, secRandNum, thiRandNum)
+while playProgram[0] == "y":
+    firUserNum, secUserNum, thiUserNum = userAsk()
+    userNumList = [firUserNum, secUserNum, thiUserNum]
+    firRandNum = randint(0,9)
+    secRandNum = randint(0,9)
+    thiRandNum = randint(0,9)
+    randNumList = [firRandNum, secRandNum, thiRandNum]
+    if all(i in randNumList for i in userNumList):
+        print("Winner!")
+    else:
+        print("You lost...")
+    print(f"Winning Numbers: {firRandNum}, {secRandNum}, {thiRandNum}")
+    playProgram = str(input("Try again? (Y/N): ")).lower()
+
+if playProgram[0] == "n":
+    exit
